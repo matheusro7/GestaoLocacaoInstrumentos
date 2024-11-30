@@ -1,0 +1,21 @@
+﻿@model GestaoLocacaoInstrumentos.Models.Funcionario
+
+<h2>Excluir Funcionário</h2>
+
+<div>
+    <h4>Tem certeza que deseja excluir este funcionário?</h4>
+    <dl class="row">
+        <dt class="col-sm-2">Nome</dt>
+        <dd class="col-sm-10">@Model.Nome</dd>
+
+        <dt class="col-sm-2">Cargo</dt>
+        <dd class="col-sm-10">@Model.Cargo</dd>
+    </dl>
+</div>
+
+<div>
+    <form asp-action="DeleteConfirmed">
+        <button type="submit" class="btn btn-danger">Excluir</button>
+        <a href="@Url.Action("Index")" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>

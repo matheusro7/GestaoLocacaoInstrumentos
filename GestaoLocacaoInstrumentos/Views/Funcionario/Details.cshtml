@@ -1,0 +1,26 @@
+﻿@model GestaoLocacaoInstrumentos.Models.Funcionario
+
+<h2>Detalhes do Funcionário</h2>
+
+<div>
+    <h4>Funcionário</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">Nome</dt>
+        <dd class="col-sm-10">@Model.Nome</dd>
+
+        <dt class="col-sm-2">Cargo</dt>
+        <dd class="col-sm-10">@Model.Cargo</dd>
+
+        <dt class="col-sm-2">Senha</dt>
+        <dd class="col-sm-10">@Model.Senha</dd>
+
+        <dt class="col-sm-2">SearchString</dt>
+        <dd class="col-sm-10">@Model.SearchString</dd>
+    </dl>
+</div>
+
+<div>
+    <a href="@Url.Action("Edit", new { id = Model.Id })" class="btn btn-primary">Editar</a>
+    <a href="@Url.Action("Delete", new { id = Model.Id })" class="btn btn-danger">Excluir</a>
+</div>

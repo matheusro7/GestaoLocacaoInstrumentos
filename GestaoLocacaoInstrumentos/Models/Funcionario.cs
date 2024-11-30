@@ -2,13 +2,23 @@
 
 namespace GestaoLocacaoInstrumentos.Models
 {
-    public class Funcionario
+    namespace GestaoLocacaoInstrumentos.Models
     {
-        public int Id { get; set; }
-        public string Nome { get; set; }
-        public string Senha { get; set; }
+        public enum CargoEnum
+        {
+            Gerente,
+            Atendente,
+            Tecnico,
+            Administrativo
+        }
 
-        public string CargoEnum Cargo { get; set; }
+        public class Funcionario
+        {
+            public int Id { get; set; }
+            public string Nome { get; set; }
+            public string Senha { get; set; }
+
+            public CargoEnum Cargo { get; set; }
+        }
     }
-
 }
