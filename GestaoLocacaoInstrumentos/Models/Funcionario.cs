@@ -7,8 +7,8 @@ namespace GestaoLocacaoInstrumentos.Models
         public int Id { get; set; }
         public string Nome { get; set; }
         public string Senha { get; set; }
-        public string Cargo { get; set; }
-        public string SearchString { get; set; }
+
+        public string CargoEnum Cargo { get; set; }
     }
 
 }

@@ -1,0 +1,27 @@
+﻿@model IEnumerable<GestaoLocacaoInstrumentos.Models.Funcionario>
+
+<h2>Lista de Funcionários</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Cargo</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var funcionario in Model)
+        {
+            <tr>
+                <td>@funcionario.Nome</td>
+                <td>@funcionario.Cargo</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@funcionario.Id">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@funcionario.Id">Detalhes</a> |
+                    <a asp-action="Delete" asp-route-id="@funcionario.Id">Excluir</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

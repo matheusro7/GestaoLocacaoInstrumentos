@@ -1,0 +1,31 @@
+﻿@model IEnumerable<GestaoLocacaoInstrumentos.Models.Estudio>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Capacidade</th>
+            <th>Endereço</th>
+            <th>Valor</th>
+            <th>Descrição</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var estudio in Model)
+        {
+            <tr>
+                <td>@estudio.Nome</td>
+                <td>@estudio.Capacidade</td>
+                <td>@estudio.Endereco</td>
+                <td>@estudio.Valor.ToString("C")</td>
+                <td>@estudio.Descricao</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@estudio.Id">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@estudio.Id">Detalhes</a> |
+                    <a asp-action="Delete" asp-route-id="@estudio.Id">Excluir</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

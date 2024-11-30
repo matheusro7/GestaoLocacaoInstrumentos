@@ -9,6 +9,6 @@ namespace GestaoLocacaoInstrumentos.Models
         public int Capacidade { get; set; }
         public string Endereco { get; set; }
         public decimal Valor { get; set; }
+        public string Descricao { get; set; }
     }
-
 }

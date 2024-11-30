@@ -1,0 +1,21 @@
+﻿@model GestaoLocacaoInstrumentos.Models.LocacaoInstrumento
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label asp-for="InstrumentoId" class="control-label">Instrumento</label>
+        <select asp-for="InstrumentoId" class="form-control" asp-items="@(new SelectList(ViewBag.Instrumentos, "Id", "NomeInstrumento"))"></select>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="SalaId" class="control-label">Sala</label>
+        <select asp-for="SalaId" class="form-control" asp-items="@(new SelectList(ViewBag.Salas, "Id", "Nome"))"></select>
+        <span asp-validation-for="SalaId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="DataLocacao" class="control-label">Data Locação</label>
+        <input asp-for="DataLocacao" class="form-control" type="date" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Confirmar Locação</button>
+</form>
