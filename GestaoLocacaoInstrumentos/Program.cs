@@ -1,3 +1,5 @@
+using GestaoLocacaoInstrumentos.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -25,3 +27,18 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
+
+using GestaoLocacaoInstrumentos.Data;
+
+var builder = WebApplication.CreateBuilder(args);
+var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    var context = services.GetRequiredService<LocadoraContext>();
+    DbInitializer.Initialize(context);
+}
+
+app.Run();
+

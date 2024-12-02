@@ -3,6 +3,8 @@
 using Microsoft.EntityFrameworkCore;
 using GestaoLocacaoInstrumentos.Models;
 using System.Collections.Generic;
+using GestaoLocacaoInstrumentos.Models.GestaoLocacaoInstrumentos.Models;
+using System.Reflection.Emit;
 
 namespace GestaoLocacaoInstrumentos.Data
 {
@@ -23,3 +25,11 @@ namespace GestaoLocacaoInstrumentos.Data
         // Adicione outros DbSets conforme necessário (Clientes, Agendamentos, etc)
     }
 }
+protected override void OnModelCreating(ModelBuilder modelBuilder)
+{
+    modelBuilder.Entity<Funcionario>().HasData(
+        new Funcionario { Id = 1, Nome = "João Silva", Senha = "senha123", Cargo = CargoEnum.Gerente },
+        new Funcionario { Id = 2, Nome = "Maria Santos", Senha = "senha456", Cargo = CargoEnum.Atendente }
+    );
+}
+
