@@ -1,14 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using GestaoLocacaoInstrumentos.Models;
+using GestaoLocacaoInstrumentos.Data;
+
 
 namespace GestaoLocacaoInstrumentos.Controllers
 {
-    using GestaoLocacaoInstrumentos.Models;
-    using global::GestaoLocacaoInstrumentos.Models;
-    using Microsoft.AspNetCore.Mvc;
-    using Microsoft.EntityFrameworkCore;
-
-    namespace GestaoLocacaoInstrumentos.Controllers
-    {
         public class LocacaoInstrumentoController : Controller
         {
             private readonly LocadoraContext _context;
@@ -38,7 +34,7 @@ namespace GestaoLocacaoInstrumentos.Controllers
 
                 if (ModelState.IsValid)
                 {
-                    _context.LocacaoInstrumentos.Add(locacao);
+                    _context.Locacoes.Add(locacao);
                     _context.SaveChanges();
                     return RedirectToAction(nameof(Index));
                 }
@@ -49,5 +45,3 @@ namespace GestaoLocacaoInstrumentos.Controllers
             }
         }
     }
-
-}

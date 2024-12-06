@@ -1,6 +1,10 @@
 using GestaoLocacaoInstrumentos.Data;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDbContext<LocadoraContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -25,13 +29,6 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
-
-app.Run();
-
-using GestaoLocacaoInstrumentos.Data;
-
-var builder = WebApplication.CreateBuilder(args);
-var app = builder.Build();
 
 using (var scope = app.Services.CreateScope())
 {

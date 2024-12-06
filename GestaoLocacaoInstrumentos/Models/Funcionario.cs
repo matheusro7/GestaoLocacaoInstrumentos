@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using GestaoLocacaoInstrumentos.Models;
 
-namespace GestaoLocacaoInstrumentos.Models
-{
     namespace GestaoLocacaoInstrumentos.Models
     {
         public enum CargoEnum
@@ -21,4 +20,4 @@ namespace GestaoLocacaoInstrumentos.Models
             public CargoEnum Cargo { get; set; }
         }
     }
-}
+
