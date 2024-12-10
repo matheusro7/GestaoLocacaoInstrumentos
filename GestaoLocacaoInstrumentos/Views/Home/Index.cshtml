@@ -2,6 +2,245 @@
     ViewData["Title"] = "Home";
 }
 
-<h1>Bem-vindo ao Sistema de Gestão de Locação de Instrumentos</h1>
-<p>Use o menu para navegar entre as entidades.</p>
+<div class="container mt-4">
+    <h1 class="text-center text-light">Bem-vindo ao Sistema de Gestão de Locação de Instrumentos</h1>
+    <p class="text-center text-light">Use o menu no topo para navegar entre as funcionalidades.</p>
 
+    <!-- Carrossel de Imagens -->
+    <div id="carouselExampleIndicators" class="carousel slide mt-5" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://musicaemercado.org/wp-content/uploads/2022/02/loja-sweetwater_20210730_Bass_Guitar_Room_01-1-scaled-1.jpg" class="d-block w-100 img-fluid" alt="Instrumentos musicais">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5 class="text-light">Instrumentos de Alta Qualidade</h5>
+                    <p class="text-light">Confira nossa ampla gama de instrumentos para locação.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="https://portalacustica.info/wp-content/uploads/2021/01/the-magic-place.png" class="d-block w-100 img-fluid" alt="Estúdio de gravação">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5 class="text-light">Estúdios Modernos</h5>
+                    <p class="text-light">Alugue estúdios totalmente equipados para ensaios e gravações.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="https://issoai.com.br/wp-content/uploads/2023/02/trabalho-em-equipe.jpg" class="d-block w-100 img-fluid" alt="Equipe">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5 class="text-light">Atendimento Especializado</h5>
+                    <p class="text-light">Conte com nossa equipe para um suporte completo.</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next" title="Próximo">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Próximo</span>
+        </button>
+    </div>
+</div>
+
+<!-- Seção do Estúdio -->
+<div class="container text-light mt-5">
+    <h2 class="text-center">RO7 Estúdio - Ensaios e Gravações</h2>
+    <p class="text-center mt-3">
+        Fundado em 2020, o RO7 Estúdio oferece serviços de gravação e locação de salas de ensaio totalmente equipadas.
+        Nossa missão é promover a música e oferecer infraestrutura de alta qualidade para músicos e produtores.
+    </p>
+</div>
+
+<!-- Nosso Equipamento -->
+<div class="container mt-5" style="background-color: #40E0D0; padding: 30px; border-radius: 10px;">
+    <h2 class="text-center text-light">Nosso Equipamento</h2>
+    <div class="row text-center mt-4">
+        <div class="col-md-4">
+            <img src="https://static.wixstatic.com/media/ca2a5a_bff264349bbe41dba7de4c8ada2dd85b.png/v1/fill/w_164,h_70,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/ca2a5a_bff264349bbe41dba7de4c8ada2dd85b.png" alt="Imagem de Gravações" class="img-fluid mb-2" style="height: 100px; object-fit: cover;">
+            <button class="btn btn-outline-light btn-lg">
+                <i class="bi bi-music-note-beamed"></i> Gravações
+            </button>
+        </div>
+        <div class="col-md-4">
+            <img src="https://static.wixstatic.com/media/ca2a5a_6b71167ec7564a16ac75eb11bcc8833f.png/v1/fill/w_126,h_74,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/ca2a5a_6b71167ec7564a16ac75eb11bcc8833f.png" alt="Imagem de Sistema de Som" class="img-fluid mb-2" style="height: 100px; object-fit: cover;">
+            <button class="btn btn-outline-light btn-lg">
+                <i class="bi bi-speaker"></i> Sistema de Som
+            </button>
+        </div>
+        <div class="col-md-4">
+            <img src="https://static.wixstatic.com/media/ca2a5a_ff0f9fb5a32147649d0d28e3c2f6638d.png/v1/fill/w_145,h_70,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/ca2a5a_ff0f9fb5a32147649d0d28e3c2f6638d.png" alt="Imagem de Microfones" class="img-fluid mb-2" style="height: 100px; object-fit: cover;">
+            <button class="btn btn-outline-light btn-lg">
+                <i class="bi bi-mic"></i> Microfones
+            </button>
+        </div>
+        <div class="col-md-4">
+            <img src="https://static.wixstatic.com/media/ca2a5a_05a1a6afdb09435dabc053207d348b35.png/v1/fill/w_164,h_54,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/ca2a5a_05a1a6afdb09435dabc053207d348b35.png" alt="Imagem de Amplificadores" class="img-fluid mb-2" style="height: 100px; object-fit: cover;">
+            <button class="btn btn-outline-light btn-lg">
+                <i class="bi bi-guitar"></i> Amplificadores
+            </button>
+        </div>
+        <div class="col-md-4">
+            <img src="https://static.wixstatic.com/media/ca2a5a_76ee71fbedd942e28a7a2a97af5b7dfe.png/v1/fill/w_126,h_82,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/ca2a5a_76ee71fbedd942e28a7a2a97af5b7dfe.png" alt="Imagem de Monitoração" class="img-fluid mb-2" style="height: 100px; object-fit: cover;">
+            <button class="btn btn-outline-light btn-lg">
+                <i class="bi bi-headphones"></i> Monitoração
+            </button>
+        </div>
+        <div class="col-md-4">
+            <img src="https://static.wixstatic.com/media/ca2a5a_db7bedac94cd4ca8bf108eaa5be6ecc5.png/v1/fill/w_132,h_78,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/ca2a5a_db7bedac94cd4ca8bf108eaa5be6ecc5.png" alt="Imagem de Instrumentos" class="img-fluid mb-2" style="height: 100px; object-fit: cover;">
+            <button class="btn btn-outline-light btn-lg">
+                <i class="bi bi-keyboard"></i> Instrumentos
+            </button>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Preços -->
+<div class="container mt-5 text-center" style="background-image: url('https://fly.metroimg.com/upload/q_85,w_700/https://uploads.metroimg.com/wp-content/uploads/2022/10/04134556/bateria-instrumento.jpg'); background-size: cover; background-position: center; color: #fff; padding: 50px 0; border-radius: 10px;">
+    <h2 class="text-light">Preços</h2>
+    <div class="row text-center mt-4">
+        <div class="col">
+            <button class="btn btn-outline-light btn-lg">Sala de Ensaio</button>
+        </div>
+        <div class="col">
+            <button class="btn btn-outline-light btn-lg">Gravação</button>
+        </div>
+        <div class="col">
+            <button class="btn btn-outline-light btn-lg">Mixagem</button>
+        </div>
+    </div>
+</div>
+
+
+<!-- Contato -->
+<div class="container mt-5">
+    <h2 class="text-center text-light">Contato</h2>
+    <img src="https://static.vecteezy.com/ti/vetor-gratis/p1/38329028-social-meios-de-comunicacao-icones-conjunto-popular-social-meios-de-comunicacao-icones-facebook-instagram-x-youtube-whatsapp-gratis-vetor.jpg" class="d-block w-100 img-fluid">
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18..." class="w-100" height="300" style="border:0;" allowfullscreen=""></iframe>
+        </div>
+        <div class="col-md-6">
+            <form>
+                <div class="mb-3">
+                    <input type="text" class="form-control" placeholder="Nome" required>
+                </div>
+                <div class="mb-3">
+                    <input type="email" class="form-control" placeholder="E-mail" required>
+                </div>
+                <div class="mb-3">
+                    <input type="text" class="form-control" placeholder="Assunto" required>
+                </div>
+                <div class="mb-3">
+                    <textarea class="form-control" rows="5" placeholder="Mensagem" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-light">Enviar</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="text-center mt-5 py-3 bg-dark text-light">
+    <p>&copy; @DateTime.Now.Year - RO7 Estúdio</p>
+</footer>
+
+<!-- CSS Adicional -->
+<style>
+    body {
+        background: linear-gradient(to bottom, #000, #444);
+        color: #fff;
+    }
+
+    .container {
+        max-width: 1200px;
+    }
+
+    .carousel-inner img {
+        height: 500px;
+        object-fit: cover;
+    }
+
+    footer {
+        margin-top: 50px;
+    }
+
+    .btn-outline-light {
+        border: 2px solid #fff;
+        color: #fff;
+        background: transparent;
+        transition: all 0.3s;
+    }
+
+        .btn-outline-light:hover {
+            background: #fff;
+            color: #000;
+        }
+
+    <style >
+    .btn-outline-light {
+        border: 2px solid #fff;
+        color: #fff;
+        background: transparent;
+        transition: all 0.3s;
+    }
+
+    .btn-outline-light:hover {
+        background: #fff;
+        color: #000;
+    }
+
+    .container .text-center {
+        text-shadow: 1px 1px 2px #000;
+    }
+
+    [style*="background-image"] {
+        background-attachment: fixed; /* Fixa o fundo durante o scroll */
+    }
+
+    <style >
+    .btn-outline-light {
+        border: 2px solid #fff;
+        color: #fff;
+        background: transparent;
+        transition: all 0.3s;
+    }
+
+    .btn-outline-light:hover {
+        background: #fff;
+        color: #000;
+    }
+
+    img.img-fluid {
+        border-radius: 5px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .container h2 {
+        text-shadow: 1px 1px 2px #000;
+    }
+</style>
+
+
+
+<script>
+    // Função para carregar localização atual
+    function initMap() {
+        navigator.geolocation.getCurrentPosition(function (position) {
+            const lat = position.coords.latitude;
+            const lng = position.coords.longitude;
+
+            const mapUrl = `https://www.google.com/maps/embed/v1/place?key=Porto+Alegre&q=${lat},${lng}`;
+            document.getElementById('map').src = mapUrl;
+        });
+    }
+
+    // Iniciar mapa
+    document.addEventListener("DOMContentLoaded", initMap);
+</script>
