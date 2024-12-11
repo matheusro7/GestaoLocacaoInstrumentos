@@ -1,41 +1,34 @@
 ﻿@model GestaoLocacaoInstrumentos.Models.Instrumento
 
 <div class="container">
-    <h2>Criar Novo Instrumento</h2>
-
+    <h1>Adicionar Instrumento</h1>
     <form asp-action="Create">
         <div class="mb-3">
-            <label for="Nome" class="form-label">Nome</label>
-            <input type="text" class="form-control" id="Nome" name="Nome" value="@Model.Nome" required />
-        </div>
-        <div class="mb-3">
-            <label for="Categoria" class="form-label">Modelo</label>
-            <input type="text" class="form-control" id="Modelo" name="Modelo" value="@Model.Modelo" required />
+            <label for="Modelo" class="form-label">Modelo</label>
+            <input type="text" asp-for="Modelo" class="form-control" />
+            <span asp-validation-for="Modelo" class="text-danger"></span>
         </div>
         <div class="mb-3">
             <label for="Marca" class="form-label">Marca</label>
-            <input type="number" class="form-control" id="Marca" name="Marca" value="@Model.Marca" step="0.01" required />
+            <input type="text" asp-for="Marca" class="form-control" />
+            <span asp-validation-for="Marca" class="text-danger"></span>
         </div>
         <div class="mb-3">
-            <label for="Descricao" class="form-label">Descricao</label>
-            <input type="number" class="form-control" id="Descricao" name="Preco" value="@Model.Descricao" step="0.01" required />
+            <label for="Nome" class="form-label">Nome</label>
+            <input type="text" asp-for="Nome" class="form-control" />
+            <span asp-validation-for="Nome" class="text-danger"></span>
         </div>
         <div class="mb-3">
-            <label for="ValorAluguel" class="form-label">ValorAluguel</label>
-            <input type="number" class="form-control" id="ValorAluguel" name="Preco" value="@Model.ValorAluguel" step="0.01" required />
+            <label for="Descricao" class="form-label">Descrição</label>
+            <textarea asp-for="Descricao" class="form-control"></textarea>
+            <span asp-validation-for="Descricao" class="text-danger"></span>
         </div>
         <div class="mb-3">
-            <label for="Id" class="form-label">Id</label>
-            <input type="number" class="form-control" id="Id" name="Preco" value="@Model.Id" step="0.01" required />
+            <label for="ValorAluguel" class="form-label">Valor Aluguel</label>
+            <input type="number" asp-for="ValorAluguel" class="form-control" />
+            <span asp-validation-for="ValorAluguel" class="text-danger"></span>
         </div>
-        <div class="mb-3">
-            <label for="Disponivel" class="form-label">Disponível</label>
-            <select class="form-select" id="Disponivel" name="Disponivel">
-                <option value="true">Sim</option>
-                <option value="false">Não</option>
-            </select>
-        </div>
-        <button type="submit" class="btn btn-primary">Salvar</button>
-        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+        <button type="submit" class="btn btn-success">Salvar</button>
+        <a asp-action="Index" class="btn btn-secondary">Voltar</a>
     </form>
 </div>

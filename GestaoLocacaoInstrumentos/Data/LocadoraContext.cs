@@ -22,8 +22,7 @@ namespace GestaoLocacaoInstrumentos.Data
         public DbSet<Conta> Contas { get; set; }
         public DbSet<Sala> Salas { get; set; }
         public DbSet<Agendamento> Agendamentos { get; set; }
-
-
+        public DbSet<Cliente> Clientes { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Funcionario>().HasData(
