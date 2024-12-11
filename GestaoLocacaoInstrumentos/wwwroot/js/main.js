@@ -15,7 +15,7 @@ $(document).ready(function () {
         });
     }
 
-    // Rotas
+    // rotas
     $("#homeLink").click(function () {
         loadTemplate("/templates/home.html");
     });
@@ -35,7 +35,7 @@ $(document).ready(function () {
         loadEstudios();
     });
 
-    // Loading dados via API
+    // Carega dados via API
     function loadClientes() {
         $.ajax({
             url: "/api/clientes",
