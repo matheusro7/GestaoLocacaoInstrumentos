@@ -1,5 +1,41 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model Instrumento
+
+<div class="container">
+    <h2>Editar Instrumento</h2>
+
+    <form asp-action="Edit">
+        <input type="hidden" asp-for="Id" />
+        <div class="mb-3">
+            <label for="Nome" class="form-label">Nome</label>
+            <input type="text" class="form-control" id="Nome" name="Nome" value="@Model.Nome" required />
+        </div>
+        <div class="mb-3">
+            <label for="Modelo" class="form-label">Modelo</label>
+            <input type="text" class="form-control" id="Modelo" name="Modelo" value="@Model.Modelo" required />
+        </div>
+        <div class="mb-3">
+            <label for="Marca" class="form-label">Marca</label>
+            <input type="number" class="form-control" id="Marca" name="Marca" value="@Model.Marca" step="0.01" required />
+        </div>
+        <div class="mb-3">
+            <label for="Descricao" class="form-label">Descricao</label>
+            <input type="text" class="form-control" id="Descricao" name="Descricao" value="@Model.Descricao" required />
+        </div>
+        <div class="mb-3">
+            <label for="ValorAluguel" class="form-label">ValorAluguel</label>
+            <input type="text" class="form-control" id="ValorAluguel" name="ValorAluguel" value="@Model.ValorAluguel" required />
+        </div>
+        <div class="mb-3">
+            <label for="Id" class="form-label">Id</label>
+            <input type="text" class="form-control" id="Id" name="Id" value="@Model.Id" required />
+        </div>
+        <div class="mb-3">
+            <label for="Disponivel" class="form-label">Disponível</label>
+            <select class="form-select" id="Disponivel" name="Disponivel">
+                <option value="true" selected="@Model.Disponivel">Sim</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Salvar</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>

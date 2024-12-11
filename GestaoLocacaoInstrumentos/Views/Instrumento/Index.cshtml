@@ -1,19 +1,17 @@
 ﻿@model IEnumerable<GestaoLocacaoInstrumentos.Models.Instrumento>
 
-@{
-    ViewData["Title"] = "Instrumentos";
-}
-
 <h1>Lista de Instrumentos</h1>
 
 <table class="table">
     <thead>
         <tr>
             <th>Nome</th>
-            <th>Marca</th>
             <th>Modelo</th>
-            <th>Valor</th>
-            <th>Ações</th>
+            <th>Marca</th>
+            <th>Descricao</th>
+            <th>ValorAluguel</th>
+            <th>Id</th>
+            <th>Disponivel</th>
         </tr>
     </thead>
     <tbody>
@@ -21,9 +19,12 @@
         {
             <tr>
                 <td>@instrumento.Nome</td>
-                <td>@instrumento.Marca</td>
                 <td>@instrumento.Modelo</td>
+                <td>@instrumento.Marca</td>
+                <td>@instrumento.Descricao</td>
                 <td>@instrumento.ValorAluguel</td>
+                <td>@instrumento.Id</td>
+                <td>@instrumento.Disponivel</td>
                 <td>
                     <a href="#">Editar</a> |
                     <a href="#">Excluir</a>

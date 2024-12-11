@@ -7,6 +7,7 @@
         <tr>
             <th>Nome</th>
             <th>Cargo</th>
+            <th>Id</th>
             <th>Ações</th>
         </tr>
     </thead>
@@ -16,6 +17,7 @@
             <tr>
                 <td>@funcionario.Nome</td>
                 <td>@funcionario.Cargo</td>
+                <td>@funcionario.Id</td>
                 <td>
                     <a asp-action="Edit" asp-route-id="@funcionario.Id">Editar</a> |
                     <a asp-action="Details" asp-route-id="@funcionario.Id">Detalhes</a> |

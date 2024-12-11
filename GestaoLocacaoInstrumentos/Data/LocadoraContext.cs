@@ -5,6 +5,7 @@ using GestaoLocacaoInstrumentos.Models;
 using System.Collections.Generic;
 using GestaoLocacaoInstrumentos.Models.GestaoLocacaoInstrumentos.Models;
 using System.Reflection.Emit;
+using Agendamento = GestaoLocacaoInstrumentos.Models.Agendamento;
 
 namespace GestaoLocacaoInstrumentos.Data
 {
@@ -20,6 +21,8 @@ namespace GestaoLocacaoInstrumentos.Data
         public DbSet<LocacaoInstrumento> Locacoes { get; set; }
         public DbSet<Conta> Contas { get; set; }
         public DbSet<Sala> Salas { get; set; }
+        public DbSet<Agendamento> Agendamentos { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Agendamento>
+
+<div class="container mt-4">
+    <h1 class="text-center">Agendamentos</h1>
+    <table class="table table-striped mt-4">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Estúdio</th>
+                <th>Data</th>
+                <th>Hora Início</th>
+                <th>Hora Fim</th>
+                <th>Cliente</th>
+                <th>Valor</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Estudio</td>
+                    <td>@item.Data.ToShortDateString()</td>
+                    <td>@item.HoraInicio</td>
+                    <td>@item.HoraFim</td>
+                    <td>@item.Cliente</td>
+                    <td>@item.Valor.ToString("C")</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary btn-sm">Editar</a>
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Deletar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a asp-action="Create" class="btn btn-success">Novo Agendamento</a>
+</div>
