@@ -38,6 +38,22 @@ namespace GestaoLocacaoInstrumentos.Controllers
             }
             return View(estudio);
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var estudio = await _context.Estudios.FindAsync(id);
+            if (estudio == null)
+            {
+                return Json(new { success = false, message = "Estúdio não encontrado." });
+            }
+
+            _context.Estudios.Remove(estudio);
+            await _context.SaveChangesAsync();
+            return Json(new { success = true });
+        }
+
     }
 }
 

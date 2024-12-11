@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using GestaoLocacaoInstrumentos.Data;
 using GestaoLocacaoInstrumentos.Models;
 using System.Diagnostics;
+using Microsoft.EntityFrameworkCore;
 
 [DebuggerDisplay($"{{{nameof(DebuggerDisplay)}(),nq}}")]
 public class AgendamentoController : Controller
