@@ -1,7 +1,7 @@
 $(document).ready(function () {
     const content = $("#content");
 
-    // template via AJAX
+    // template AJAX
     function loadTemplate(url) {
         $.ajax({
             url: url,
