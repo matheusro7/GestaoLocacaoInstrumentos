@@ -25,6 +25,17 @@ namespace GestaoLocacaoInstrumentos.Controllers
             return View();
         }
 
+        //[HttpGet]
+       // public async Task<IActionResult> Get()
+        //{
+         //   var funcionarios = await _context.Funcionarios.ToListAsync();
+
+         //   var nomefuncionarios = funcionarios.Select(x => x.Nome);
+          //  var joao = nomefuncionarios.Where(x => x.Contains("João"));
+
+          //  return Ok(funcionarios);
+       // }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Funcionario funcionario)
@@ -130,3 +141,6 @@ namespace GestaoLocacaoInstrumentos.Controllers
 
     }
 }
+
+
+
