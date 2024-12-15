@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-
 using GestaoLocacaoInstrumentos.Data;
 using GestaoLocacaoInstrumentos.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -71,8 +70,63 @@ namespace GestaoLocacaoInstrumentos.Controllers
             }
             return RedirectToAction(nameof(Index));
 
-
-
         }
+
+        // GET: Funcionarios/Edit/5
+        //        public async Task<IActionResult> Edit(int? id)
+        //        {
+        //            if (id == null)
+        //            {
+        //                return NotFound();
+        //            }
+        //
+        //            var funcionario = await _context.Funcionarios.FindAsync(id);
+        //            if (funcionario == null)
+        //            {
+        //                return NotFound();
+        //            }
+        //            return View(funcionario);
+        //        }
+
+        // POST: Funcionarios/Edit/5
+        //        [HttpPost]
+        //        [ValidateAntiForgeryToken]
+        //        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Cargo,Disponivel")] Funcionario funcionario)
+        //        {
+        //            if (id != funcionario.Id)
+        //            {
+        //               return NotFound();
+        //           }
+
+        //            if (ModelState.IsValid)
+        //            {
+        //                try
+        //                {
+        //                    _context.Update(funcionario);
+        //                    await _context.SaveChangesAsync();
+        //                }
+        //                catch (DbUpdateConcurrencyException)
+        //                {
+        //                    if (!FuncionarioExists(funcionario.Id))
+        //                    {
+        //                        return NotFound();
+        //                    }
+        //                    else
+        //                    {
+        //                        throw;
+        //                    }
+        //                }
+        //                return RedirectToAction(nameof(Index));
+        //            }
+        //            return View(funcionario);
+
+        //ModelState.AddModelError("", "Ocorreu um erro ao salvar as alterações. Verifique os dados e tente novamente.");
+        //return View(funcionario);
+        //        }
+        //        private bool FuncionarioExists(int id)
+        //        {
+        //            return _context.Funcionarios.Any(e => e.Id == id);
+        //        }
+
     }
 }

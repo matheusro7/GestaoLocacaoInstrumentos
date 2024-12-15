@@ -3,13 +3,15 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddDbContext<LocadoraContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+Action<DbContextOptionsBuilder>? optionsAction = options =>
+            options.UseSqlServer(connectionString: builder.Configuration.GetConnectionString("DefaultConnection"));
+builder.Services.AddDbContext<LocadoraContext>((Action<DbContextOptionsBuilder>?)optionsAction);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -30,12 +32,29 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
+
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllerRoute(
+        name: "default",
+        pattern: "{controller=Home}/{action=Index}/{id?}");
+});
+
+
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
-    var context = services.GetRequiredService<LocadoraContext>();
-    DbInitializer.Initialize(context);
+
+    try
+    {
+        var context = services.GetRequiredService<LocadoraContext>();
+        DbInitializer.Initialize(context);
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"Erro ao inicializar o banco de dados: {ex.Message}");
+    }
+
 }
 
 app.Run();
-

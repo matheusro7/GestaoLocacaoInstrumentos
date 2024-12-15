@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-
 using GestaoLocacaoInstrumentos.Models;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 
 namespace GestaoLocacaoInstrumentos.Data
@@ -10,8 +10,8 @@ namespace GestaoLocacaoInstrumentos.Data
     {
         public static void Initialize(LocadoraContext context)
         {
-            context.Database.EnsureCreated(); // Garante que o banco está criado
-            // Verifica se já existem funcionários no banco
+            context.Database.EnsureCreated();
+
             if (context.Funcionarios.Any())
             {
                 return;
@@ -28,4 +28,5 @@ namespace GestaoLocacaoInstrumentos.Data
         }
     }
 }
+
 
