@@ -96,11 +96,11 @@ namespace GestaoLocacaoInstrumentos.Controllers
         }
 
 
-        [HttpGet]
-        public IActionResult Create()
-        {
-            return View();
-        }
+        //[HttpGet]
+        //public IActionResult Create()
+        //{
+        //    return View();
+        //}
 
         //[HttpPost]
         //public IActionResult Create(Estudio estudio)

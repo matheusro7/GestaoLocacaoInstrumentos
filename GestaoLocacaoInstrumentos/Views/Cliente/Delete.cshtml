@@ -1,0 +1,28 @@
+﻿@model GestaoLocacaoInstrumentos.Models.Cliente
+
+@{
+    ViewData["Title"] = "Excluir Cliente";
+}
+
+<h1>Excluir Cliente</h1>
+
+<p>Tem certeza de que deseja excluir este cliente?</p>
+
+<div class="border rounded p-3 mb-3">
+    <dl class="row">
+        <dt class="col-sm-3">Nome:</dt>
+        <dd class="col-sm-9">@Model.Nome</dd>
+
+        <dt class="col-sm-3">Senha:</dt>
+        <dd class="col-sm-9">@Model.Senha</dd>
+
+        <dt class="col-sm-3">Email:</dt>
+        <dd class="col-sm-9">@Model.Email</dd>
+    </dl>
+</div>
+
+<form asp-action="DeleteConfirmed" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Excluir</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

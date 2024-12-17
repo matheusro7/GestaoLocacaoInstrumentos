@@ -37,6 +37,11 @@ namespace GestaoLocacaoInstrumentos.Data
                 new Instrumento { Id = 2, Nome = "Teclado", Marca = "Casio", Modelo = ModeloEnum.Percussao, ValorAluguel = 70, Descricao = "Tarro" }
             );
 
+
+            modelBuilder.Entity<Cliente>().HasData(
+                new Cliente { Id = 1, Nome = "João Silva", Senha = "senha123", Email = "mail@mail" },
+                new Cliente { Id = 2, Nome = "Maria Santos", Senha = "senha456", Email = "mails@mails" }
+            );
         }
 
 
