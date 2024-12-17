@@ -10,10 +10,13 @@ namespace GestaoLocacaoInstrumentos.Data
         }
 
         public DbSet<Instrumento> Instrumentos { get; set; }
+        public DbSet<Agendamento> Agendamentos { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Agendamento>()
+                .ToTable("Agendamentos");//modelBuilder.Entity<Agendamento>();
 
             // Configurações adicionais
             modelBuilder.Entity<Instrumento>(entity =>
@@ -25,6 +28,11 @@ namespace GestaoLocacaoInstrumentos.Data
                 entity.Property(e => e.Descricao).HasMaxLength(500);
                 entity.Property(e => e.ValorAluguel).HasColumnType("decimal(18,2)");
             });
+
         }
+
+
     }
 }
+
+

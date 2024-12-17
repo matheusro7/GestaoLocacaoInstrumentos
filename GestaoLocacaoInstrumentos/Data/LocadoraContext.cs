@@ -13,7 +13,7 @@ namespace GestaoLocacaoInstrumentos.Data
     {
         public LocadoraContext(DbContextOptions<LocadoraContext> options) : base(options) { }
 
-        // Defina as DbSet para suas entidades
+        
         public DbSet<Funcionario> Funcionarios { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Estudio> Estudios { get; set; }
@@ -25,14 +25,28 @@ namespace GestaoLocacaoInstrumentos.Data
         public DbSet<Cliente> Clientes { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-
             modelBuilder.Entity<Funcionario>().HasData(
                 new Funcionario { Id = 1, Nome = "João Silva", Senha = "senha123", Cargo = CargoEnum.Gerente },
                 new Funcionario { Id = 2, Nome = "Maria Santos", Senha = "senha456", Cargo = CargoEnum.Atendente }
             );
-        }
+            modelBuilder.Entity<Estudio>().HasData(
+        new Estudio
+        {
+            Id = 1, Nome = "Estúdio A", Capacidade = 5, Valor = 50m, Descricao = "Ar condicionado, frigobar e sofá", Endereco = "Tv"
 
+        },
+        new Estudio
+        {
+            Id = 2, Nome = "Estúdio B", Capacidade = 10, Valor = 100m, Descricao = "Apenas ar condicionado", Endereco = "TV"
+        }
+    );
+
+            
+        }
+        
+
+        }
     }
 
-}
+
 

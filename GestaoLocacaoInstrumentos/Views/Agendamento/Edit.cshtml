@@ -1,0 +1,33 @@
+﻿@model GestaoLocacaoInstrumentos.Models.Agendamento
+
+<h2>Editar Agendamento</h2>
+
+<h2>Editar Agendamento</h2>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
+    <div class="form-group">
+        <label for="Estudio">Estúdio</label>
+        <input type="text" class="form-control" asp-for="Estudio" />
+    </div>
+    <div class="form-group">
+        <label for="Cliente">Cliente</label>
+        <input type="text" class="form-control" asp-for="Cliente" />
+    </div>
+    <div class="form-group">
+        <label for="Data">Data</label>
+        <input type="date" class="form-control" asp-for="Data" />
+    </div>
+    <div class="form-group">
+        <label for="HoraInicio">Hora Início</label>
+        <input type="time" class="form-control" asp-for="HoraInicio" />
+    </div>
+    <div class="form-group">
+        <label for="HoraFim">Hora Fim</label>
+        <input type="time" class="form-control" asp-for="HoraFim" />
+    </div>
+    <button type="submit" class="btn btn-success">Salvar Alterações</button>
+</form>
+
+
+<a href="@Url.Action("Index")">Voltar</a>

@@ -1,11 +1,14 @@
 ﻿@model IEnumerable<GestaoLocacaoInstrumentos.Models.Estudio>
 
-<table class="table">
+
+
+<h2>Lista de Estúdios</h2>
+
+<table class="table table-bordered">
     <thead>
         <tr>
             <th>Nome</th>
             <th>Capacidade</th>
-            <th>Endereço</th>
             <th>Valor</th>
             <th>Descrição</th>
             <th>Ações</th>
@@ -16,17 +19,17 @@
         {
             <tr>
                 <td>@estudio.Nome</td>
-                <td>@estudio.Id</td>
                 <td>@estudio.Capacidade</td>
-                <td>@estudio.Endereco</td>
-                <td>@estudio.Valor.ToString("C")</td>
+                <td>@estudio.Valor</td>
                 <td>@estudio.Descricao</td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@estudio.Id">Editar</a> |
-                    <a asp-action="Details" asp-route-id="@estudio.Id">Detalhes</a> |
-                    <a asp-action="Delete" asp-route-id="@estudio.Id">Excluir</a>
+                    <a class="btn btn-info" asp-action="Details" asp-route-id="@estudio.Id">Detalhes</a>
+                    <a class="btn btn-primary" asp-action="Edit" asp-route-id="@estudio.Id">Editar</a>
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@estudio.Id">Deletar</a>
                 </td>
             </tr>
         }
     </tbody>
 </table>
+
+<a class="btn btn-success" asp-action="Create">Adicionar Novo Estúdio</a>
