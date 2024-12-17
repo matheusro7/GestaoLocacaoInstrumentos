@@ -38,7 +38,7 @@ namespace GestaoLocacaoInstrumentos.Controllers
             return View();
         }
 
-        // POST: Instrumento/Create
+        // POST: Instrumento/Create       DAQUI
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Modelo,Marca,Nome,Descricao,ValorAluguel")] Instrumento instrumento)
@@ -51,6 +51,12 @@ namespace GestaoLocacaoInstrumentos.Controllers
             }
             return View(instrumento);
         }
+    //} aqui
+        private static List<Instrumento> funcionarios = new List<Instrumento>
+        {
+            new Instrumento {  Nome = "Violão", Marca = "Yamaha", Modelo = ModeloEnum.Corda, ValorAluguel = 50, Descricao = "Violão acústico"  },
+            new Instrumento { Nome = "Teclado", Marca = "Casio", Modelo = ModeloEnum.Percussao, ValorAluguel = 70, Descricao = "Tarro" }
+        };
 
         // GET: Instrumento/Edit/5
         public async Task<IActionResult> Edit(int? id)

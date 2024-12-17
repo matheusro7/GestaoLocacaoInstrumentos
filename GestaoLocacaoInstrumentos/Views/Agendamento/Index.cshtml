@@ -1,8 +1,9 @@
 ﻿@model IEnumerable<Agendamento>
 
-<div class="container mt-4">
-    <h1 class="text-center">Agendamentos</h1>
-    <table class="table table-striped mt-4">
+
+<div class="container">
+    <h1>Agendamentos</h1>
+    <table class="table">
         <thead>
             <tr>
                 <th>ID</th>
@@ -27,8 +28,8 @@
                     <td>@item.Cliente</td>
                     <td>@item.Valor.ToString("C")</td>
                     <td>
-                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary btn-sm">Editar</a>
-                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Deletar</a>
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">Editar</a>
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Excluir</a>
                     </td>
                 </tr>
             }

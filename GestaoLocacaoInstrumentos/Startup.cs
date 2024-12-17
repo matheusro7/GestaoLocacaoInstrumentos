@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
+
 namespace GestaoLocacaoInstrumentos
 {
     public class Startup
@@ -21,8 +22,10 @@ namespace GestaoLocacaoInstrumentos
         public void ConfigureServices(IServiceCollection services)
         {
             // Configura o banco de dados
-            services.AddDbContext<LocadoraContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            //services.AddDbContext<LocadoraContext>(options =>
+            //options.UseInMemoryDatabase("GestaoLocacaoInstrumentos"));
+
+              //  options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             // Adiciona o suporte ao Razor Pages e MVC
             services.AddControllersWithViews();

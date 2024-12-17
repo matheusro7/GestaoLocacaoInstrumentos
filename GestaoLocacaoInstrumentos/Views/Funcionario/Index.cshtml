@@ -19,9 +19,9 @@
                 <td>@funcionario.Cargo</td>
                 <td>@funcionario.Id</td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@funcionario.Id">Editar</a> |
-                    <a asp-action="Details" asp-route-id="@funcionario.Id">Detalhes</a> |
-                    <a asp-action="Delete" asp-route-id="@funcionario.Id">Excluir</a>
+                <a asp-action="Details" asp-route-id="@funcionario.Id" class="btn btn-info">Detalhes</a>
+                <a asp-action="Edit" asp-route-id="@funcionario.Id" class="btn btn-warning">Editar</a> 
+                <a asp-action="Delete" asp-route-id="@funcionario.Id" class="btn btn-danger">Excluir</a>
                 </td>
             </tr>
         }

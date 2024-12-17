@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 Action<DbContextOptionsBuilder>? optionsAction = options =>
-            options.UseSqlServer(connectionString: builder.Configuration.GetConnectionString("DefaultConnection"));
+            options.UseInMemoryDatabase("GestaoLocacaoInstrumentos");
 builder.Services.AddDbContext<LocadoraContext>((Action<DbContextOptionsBuilder>?)optionsAction);
 
 // Add services to the container.

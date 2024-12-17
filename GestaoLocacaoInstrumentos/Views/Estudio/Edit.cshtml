@@ -2,22 +2,28 @@
 
 <h2>Editar Estúdio</h2>
 
-<form asp-action="Edit">
-    <div class="form-group">
-        <label for="Nome">Nome</label>
-        <input asp-for="Nome" class="form-control" />
+<form asp-action="Edit" method="post">
+    <div class="mb-3">
+        <label for="Nome" class="form-label">Nome da Sala</label>
+        <select asp-for="Nome" class="form-select" required>
+            <option value="Nome">Estúdio A </option>
+            <option value="Nome">Estúdio B </option>
+        </select>
     </div>
     <div class="form-group">
-        <label for="Capacidade">Capacidade</label>
-        <input asp-for="Capacidade" class="form-control" />
+        <label for="Capacidade" class="form-label">Capacidade</label>
+        <input type="text" class="form-control" id="Capacidade" name="Capacidade" value="@Model.Capacidade" required />
     </div>
     <div class="form-group">
-        <label for="Endereco">Endereço</label>
-        <input asp-for="Endereco" class="form-control" />
+        <label for="Endereco" class="form-label">Endereço</label>
+        <input type="text" class="form-control" id="Endereco" name="Endereco" value="@Model.Endereco" required />
     </div>
     <div class="form-group">
         <label for="Valor">Valor</label>
-        <input asp-for="Valor" class="form-control" />
+        <input asp-for="Valor" class="form-control" placeholder="Valor (R$)" type="number" step="0.01" />
+        <span asp-validation-for="Valor" class="text-danger"></span>
     </div>
-    <button type="submit" class="btn btn-primary">Salvar</button>
+    <br>
+    <button type="submit" class="btn btn-success">Salvar Alterações</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
 </form>

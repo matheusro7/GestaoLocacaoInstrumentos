@@ -26,6 +26,11 @@
             <label for="Cliente" class="form-label">Cliente</label>
             <input asp-for="Cliente" type="text" class="form-control" required />
         </div>
+        <div class="mb-3">
+            <label for="ValorAluguel" class="form-label">Valor</label>
+            <input asp-for="Valor" class="form-control" placeholder="Valor (R$)" type="number" step="0.01" />
+            <span asp-validation-for="Valor" class="text-danger"></span>
+        </div>
         <div class="text-center">
             <button type="submit" class="btn btn-success">Salvar</button>
             <a asp-action="Index" class="btn btn-secondary">Voltar</a>

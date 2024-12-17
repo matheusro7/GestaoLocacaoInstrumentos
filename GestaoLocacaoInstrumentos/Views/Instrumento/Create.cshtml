@@ -2,11 +2,12 @@
 
 <div class="container">
     <h1>Adicionar Instrumento</h1>
-    <form asp-action="Create">
-        <div class="mb-3">
-            <label for="Modelo" class="form-label">Modelo</label>
-            <input type="text" asp-for="Modelo" class="form-control" />
-            <span asp-validation-for="Modelo" class="text-danger"></span>
+    <form asp-action="Create" method="post">
+        <div class="form-group">
+            <label asp-for="Modelo">Modelo</label>
+            <select asp-for="Modelo" asp-items="Html.GetEnumSelectList<GestaoLocacaoInstrumentos.Models.ModeloEnum>()" class="form-control">
+                <option value="">Selecione o modelo</option>
+            </select>
         </div>
         <div class="mb-3">
             <label for="Marca" class="form-label">Marca</label>
@@ -25,7 +26,7 @@
         </div>
         <div class="mb-3">
             <label for="ValorAluguel" class="form-label">Valor Aluguel</label>
-            <input type="number" asp-for="ValorAluguel" class="form-control" />
+            <input asp-for="ValorAluguel" class="form-control" placeholder="Valor (R$)" type="number" step="0.01" />
             <span asp-validation-for="ValorAluguel" class="text-danger"></span>
         </div>
         <button type="submit" class="btn btn-success">Salvar</button>

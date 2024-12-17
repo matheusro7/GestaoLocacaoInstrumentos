@@ -1,8 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System;
-using System.ComponentModel.DataAnnotations;
-namespace GestaoLocacaoInstrumentos.Models;
-
+﻿namespace GestaoLocacaoInstrumentos.Models
+{
     public class Agendamento
     {
         public int Id { get; set; }
@@ -27,6 +24,8 @@ namespace GestaoLocacaoInstrumentos.Models;
 
         public decimal Valor { get; set; }
 
-        public string Descricao { get; set; }
+       // public string Descricao { get; set; }
+
+    }
 
 }

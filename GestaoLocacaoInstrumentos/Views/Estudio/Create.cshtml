@@ -1,11 +1,11 @@
 ﻿@model GestaoLocacaoInstrumentos.Models.Estudio
 
-<h2>Criar Novo Estúdio</h2>
+<h2>Criar Nova Sala de Estúdio</h2>
 
 <form asp-action="Create" method="post">
     <div class="form-group">
         <label asp-for="Nome"></label>
-        <input asp-for="Nome" class="form-control" placeholder="Nome do Estúdio" />
+        <input asp-for="Nome" class="form-control" placeholder="Nome da Sala de Estúdio" />
     </div>
     
     <div class="form-group">
@@ -13,9 +13,9 @@
         <input asp-for="Capacidade" class="form-control" placeholder="Capacidade" type="number" />
     </div>
 
-    <div class="form-group">
-        <label asp-for="Endereco"></label>
-        <input asp-for="Endereco" class="form-control" placeholder="Endereço" />
+    <div class="mb-3">
+        <label asp-for="Endereco" required></label>
+            <textarea asp-for="Endereco" class="form-control" placeholder="Endereço"></textarea>
     </div>
 
     <div class="form-group">
@@ -27,7 +27,7 @@
         <label asp-for="Descricao"></label>
         <textarea asp-for="Descricao" class="form-control" placeholder="Descrição"></textarea>
     </div>
-
+    <br>
     <button type="submit" class="btn btn-primary">Salvar</button>
     <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
 </form>

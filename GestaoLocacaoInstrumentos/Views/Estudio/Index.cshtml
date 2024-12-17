@@ -2,7 +2,7 @@
 
 
 
-<h2>Lista de Estúdios</h2>
+<h1>Lista de Salas de Estúdio</h1>
 
 <table class="table table-bordered">
     <thead>
@@ -20,12 +20,12 @@
             <tr>
                 <td>@estudio.Nome</td>
                 <td>@estudio.Capacidade</td>
-                <td>@estudio.Valor</td>
+                <td>@estudio.Valor.ToString("C")</td>
                 <td>@estudio.Descricao</td>
                 <td>
-                    <a class="btn btn-info" asp-action="Details" asp-route-id="@estudio.Id">Detalhes</a>
-                    <a class="btn btn-primary" asp-action="Edit" asp-route-id="@estudio.Id">Editar</a>
-                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@estudio.Id">Deletar</a>
+                    <a class="btn btn-info" asp-action="Details" asp-route-id="@estudio.Id" class="btn btn-info">Detalhes</a>
+                    <a class="btn btn-primary" asp-action="Edit" asp-route-id="@estudio.Id" class="btn btn-warning">Editar</a>
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@estudio.Id" class="btn btn-danger">Excluir</a>
                 </td>
             </tr>
         }

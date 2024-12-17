@@ -1,0 +1,19 @@
+﻿@model GestaoLocacaoInstrumentos.Models.Funcionario
+
+@{
+    ViewData["Title"] = "Resultado da Edição";
+}
+
+<h2>Dados do Funcionário Editado</h2>
+
+<div class="alert alert-success">@ViewBag.Message</div>
+
+<ul class="list-group">
+    <li class="list-group-item"><strong>ID:</strong> @Model.Id</li>
+    <li class="list-group-item"><strong>Nome:</strong> @Model.Nome</li>
+    <li class="list-group-item"><strong>Senha:</strong> @Model.Senha</li>
+    <li class="list-group-item"><strong>Cargo:</strong> @Model.Cargo</li>
+</ul>
+
+<a asp-action="Index" class="btn btn-primary mt-3">Voltar</a>
+

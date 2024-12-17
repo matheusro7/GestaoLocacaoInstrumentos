@@ -1,7 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
-using GestaoLocacaoInstrumentos.Models;
-using GestaoLocacaoInstrumentos.Models.GestaoLocacaoInstrumentos.Models;
+﻿using GestaoLocacaoInstrumentos.Models;
 
 namespace GestaoLocacaoInstrumentos.Data
 {
@@ -21,8 +18,8 @@ namespace GestaoLocacaoInstrumentos.Data
         {
             var instrumentos = new Instrumento[]
             {
-                new Instrumento { Nome = "Violão", Marca = "Yamaha", Modelo = "F310", ValorAluguel = 50, Descricao = "Violão acústico" },
-                new Instrumento { Nome = "Teclado", Marca = "Casio", Modelo = "CT-X700", ValorAluguel = 70, Descricao = "Teclado portátil" }
+                new Instrumento { Nome = "Violão", Marca = "Yamaha", Modelo = ModeloEnum.Corda, ValorAluguel = 50, Descricao = "Violão acústico" },
+                new Instrumento { Nome = "Teclado", Marca = "Casio", Modelo = ModeloEnum.Percussao, ValorAluguel = 70, Descricao = "Tarro" }
             };
             context.Instrumentos.AddRange(instrumentos);
         }
@@ -35,6 +32,17 @@ namespace GestaoLocacaoInstrumentos.Data
                 new Estudio { Nome = "Sala B", Capacidade = 3, Endereco = "Rua Secundária, 456", Valor = 80 }
             };
             context.Estudios.AddRange(estudios);
+        }
+
+        public static void SeedAgendamento(LocadoraContext context)
+        {
+            var agendamentos = new Agendamento[]
+            {
+            new Agendamento { Id = 1, Estudio = "Estudio A", Data = DateTime.Now.AddDays(1), HoraInicio = TimeSpan.FromHours(12), HoraFim = TimeSpan.FromHours(13), Cliente = "Cliente 1", Valor = 150.00M },
+            new Agendamento { Id = 2, Estudio = "Estudio B", Data = DateTime.Now.AddDays(2), HoraInicio = TimeSpan.FromHours(16), HoraFim = TimeSpan.FromHours(18), Cliente = "Cliente 2", Valor = 200.00M },
+            new Agendamento { Id = 3, Estudio = "Estudio A", Data = DateTime.Now.AddDays(3),HoraInicio = TimeSpan.FromHours(20), HoraFim = TimeSpan.FromHours(23), Cliente = "Cliente 13", Valor = 250.00M }
+            };
+            context.Agendamentos.AddRange(agendamentos);
         }
     }
 }
