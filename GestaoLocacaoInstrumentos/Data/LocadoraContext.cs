@@ -33,8 +33,8 @@ namespace GestaoLocacaoInstrumentos.Data
             );
 
             modelBuilder.Entity<Instrumento>().HasData(
-                new Instrumento { Id = 1, Nome = "Violão", Marca = "Yamaha", Modelo = ModeloEnum.Corda, ValorAluguel = 50, Descricao = "Violão acústico" },
-                new Instrumento { Id = 2, Nome = "Teclado", Marca = "Casio", Modelo = ModeloEnum.Percussao, ValorAluguel = 70, Descricao = "Tarro" }
+                new Instrumento { Id = 1, Nome = "Cordofones", Marca = "Fender", Modelo = ModeloEnum.Cordas, ValorAluguel = 50, Descricao = "Contrabaixo" },
+                new Instrumento { Id = 2, Nome = "Membrafones", Marca = "Gorilla", Modelo = ModeloEnum.Percussão, ValorAluguel = 70, Descricao = "Bumbo" }
             );
 
 

@@ -50,11 +50,9 @@ namespace GestaoLocacaoInstrumentos.Controllers
             {
                 _context.Add(cliente);
                 await _context.SaveChangesAsync();
-
                 //TempData["Message"] = "Cliente criado com sucesso!";
                 return RedirectToAction(nameof(Index));
             }
-
             return View(cliente);
         }
 
@@ -117,14 +115,14 @@ namespace GestaoLocacaoInstrumentos.Controllers
         // POST: Cliente/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> Delete(int id)
         {
             var cliente = await _context.Clientes.FindAsync(id);
             if (cliente != null)
             {
                 _context.Clientes.Remove(cliente);
                 await _context.SaveChangesAsync();
-                TempData["Message"] = "Cliente excluído com sucesso!";
+                TempData["MensagemSucesso"] = "Cliente excluído com sucesso!";
             }
 
             return RedirectToAction(nameof(Index));

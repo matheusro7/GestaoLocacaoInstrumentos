@@ -18,8 +18,8 @@ namespace GestaoLocacaoInstrumentos.Data
         {
             var instrumentos = new Instrumento[]
             {
-                new Instrumento { Nome = "Violão", Marca = "Yamaha", Modelo = ModeloEnum.Corda, ValorAluguel = 50, Descricao = "Violão acústico" },
-                new Instrumento { Nome = "Teclado", Marca = "Casio", Modelo = ModeloEnum.Percussao, ValorAluguel = 70, Descricao = "Tarro" }
+                new Instrumento { Nome = "Cordofones", Marca = "Fender", Modelo = ModeloEnum.Cordas, ValorAluguel = 50, Descricao = "Contrabaixo" },
+                new Instrumento { Nome = "Membrafones", Marca = "Gorilla", Modelo = ModeloEnum.Percussão, ValorAluguel = 70, Descricao = "Bumbo" }
             };
             context.Instrumentos.AddRange(instrumentos);
         }

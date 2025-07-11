@@ -1,0 +1,24 @@
+﻿@model GestaoLocacaoInstrumentos.Models.Cliente
+
+<div class="container mt-4 text-light">
+    <h2>Detalhes do Cliente</h2>
+
+    <div class="card bg-dark text-light mb-4" style="max-width: 600px;">
+        <div class="card-body">
+            <dl class="row">
+                <dt class="col-sm-4">Nome:</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Nome)</dd>
+
+                <dt class="col-sm-4">E-mail:</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Email)</dd>
+
+                <dt class="col-sm-4">ID:</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Id)</dd>
+            </dl>
+
+            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-outline-warning me-2">Editar</a>
+            <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-outline-danger me-2">Excluir</a>
+            <a asp-action="Index" class="btn btn-outline-secondary">Voltar</a>
+        </div>
+    </div>
+</div>

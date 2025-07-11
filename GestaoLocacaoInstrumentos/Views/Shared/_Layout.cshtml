@@ -5,17 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - GestaoLocacaoInstrumentos</title>
 
-    <!-- Bootstrap 5 Dark Theme (usando Bootstrap padrão + modo dark) -->
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
 
+    <!-- Seu CSS -->
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/GestaoLocacaoInstrumentos.styles.css" asp-append-version="true" />
+
+    <!-- Estilo modo escuro -->
     <style>
         body {
             background-color: #121212;
             color: #e0e0e0;
         }
 
-        .navbar, .footer {
+        .navbar, footer {
             background-color: #1f1f1f;
         }
 
@@ -28,11 +33,7 @@
                 color: #bbbbbb !important;
             }
 
-        .card {
-            background-color: #1e1e1e;
-            color: #e0e0e0;
-        }
-
+        .card,
         .form-control,
         .form-select {
             background-color: #2c2c2c;
@@ -52,17 +53,7 @@
             .btn-primary:hover {
                 background-color: #005bb5;
             }
-
-        .alert {
-            background-color: #2c2c2c;
-            border-color: #444;
-            color: #fff;
-        }
     </style>
-
-    <!-- Seu CSS adicional -->
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/GestaoLocacaoInstrumentos.styles.css" asp-append-version="true" />
 </head>
 <body>
     <header>
@@ -96,37 +87,26 @@
         </main>
     </div>
 
-    <!-- jQuery + Validação -->
+    <footer class="text-center py-3 text-light">
+        <p>&copy; @DateTime.Now.Year - RO7 Estúdio</p>
+    </footer>
+
+    <!-- jQuery (opcional para validação) -->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery-validation-unobtrusive@3.2.12/dist/jquery.validate.unobtrusive.min.js"></script>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-ENjdO4Dr2bkBIFxQpeoA6DQDkS2eM9eJkP7uWfYlqF/x0IbhFhZf5c5j5rjvG0gG"
             crossorigin="anonymous"></script>
 
-    <!-- JS customizados -->
+    <!-- Validação -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation-unobtrusive@3.2.12/dist/jquery.validate.unobtrusive.min.js"></script>
+
+    <!-- Scripts customizados -->
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/js/cliente.js" asp-append-version="true"></script>
 
     @await RenderSectionAsync("Scripts", required: false)
-
-
-    <body class="d-flex flex-column min-vh-100">
-        <header>
-            <!-- ... -->
-        </header>
-
-        <div class="container flex-grow-1">
-            <main role="main" class="pb-3">
-                @RenderBody()
-            </main>
-        </div>
-
-        @* Footer será renderizado pela View *@
-    </body>
-
 </body>
-
 </html>

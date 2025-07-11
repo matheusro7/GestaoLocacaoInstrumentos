@@ -1,26 +1,55 @@
-﻿<div class="container mt-4">
-    <h1 class="text-center">Gerenciar Clientes</h1>
+﻿@model IEnumerable<GestaoLocacaoInstrumentos.Models.Cliente>
 
-    <form id="clienteForm" class="mt-4">
-        <div class="mb-3">
-            <label for="nome" class="form-label">Nome</label>
-            <input id="nome" class="form-control" type="text" required />
-        </div>
-        <div class="mb-3">
-            <label for="email" class="form-label">Email</label>
-            <input id="email" class="form-control" type="email" required />
-        </div>
-        <div class="mb-3">
-            <label for="senha" class="form-label">Senha</label>
-            <input id="senha" class="form-control" type="password" required />
-        </div>
-        <button type="submit" class="btn btn-primary">Adicionar Cliente</button>
-    </form>
+@{
+    ViewData["Title"] = "Clientes";
+}
 
-    <ul id="clienteList" class="mt-4"></ul>
-</div>
+<h2 class="text-light mb-4">Lista de Clientes</h2>
 
-<!-- Footer -->
-<footer class="text-center mt-5 py-3 bg-dark text-light">
-    <p>&copy; @DateTime.Now.Year - RO7 Estúdio</p>
-</footer>
+<a asp-action="Create" class="btn btn-success mb-3">+ Adicionar Cliente</a>
+
+<!-- Alerta de sucesso -->
+@if (TempData["MensagemSucesso"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        @TempData["MensagemSucesso"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fechar"></button>
+    </div>
+}
+
+@if (!Model.Any())
+{
+    <div class="alert alert-warning">
+        Nenhum cliente cadastrado.
+    </div>
+}
+else
+{
+    <div class="table-responsive">
+        <table class="table table-dark table-striped table-hover">
+            <thead class="table-light">
+                <tr>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>ID</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var cliente in Model)
+                {
+                    <tr>
+                        <td width="20%">@cliente.Nome</td>
+                        <td>@cliente.Email</td>
+                        <td width="10%">@cliente.Id</td>
+                        <td width="20%">
+                            <a asp-action="Details" asp-route-id="@cliente.Id" class="btn btn-outline-info btn-sm">Detalhes</a>
+                            <a asp-action="Edit" asp-route-id="@cliente.Id" class="btn btn-outline-warning btn-sm ms-1">Editar</a>
+                            <a asp-action="Delete" asp-route-id="@cliente.Id" class="btn btn-outline-danger btn-sm ms-1">Excluir</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}

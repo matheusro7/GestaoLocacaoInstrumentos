@@ -8,6 +8,16 @@
 
 <a asp-action="Create" class="btn btn-success mb-3">+ Adicionar Novo Estúdio</a>
 
+<!-- Alerta de sucesso -->
+@if (TempData["MensagemSucesso"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        @TempData["MensagemSucesso"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fechar"></button>
+    </div>
+}
+
+
 @if (!Model.Any())
 {
     <div class="alert alert-warning">
@@ -24,6 +34,7 @@ else
                     <th>Capacidade Pessoas</th>
                     <th>Valor</th>
                     <th>Descrição</th>
+                    <th>Endereço</th>
                     <th>Ações</th>
                 </tr>
             </thead>
@@ -35,6 +46,7 @@ else
                         <td>@estudio.Capacidade</td>
                         <td>@estudio.Valor.ToString("C")</td>
                         <td>@estudio.Descricao</td>
+                        <td>@estudio.Endereco</td>
                         <td>
                             <a asp-action="Details" asp-route-id="@estudio.Id" class="btn btn-outline-info btn-sm">Detalhes</a>
                             <a asp-action="Edit" asp-route-id="@estudio.Id" class="btn btn-outline-warning btn-sm ms-1">Editar</a>
@@ -46,7 +58,3 @@ else
         </table>
     </div>
 }
-<!-- Footer -->
-<footer class="text-center mt-5 py-3 bg-dark text-light">
-    <p>&copy; @DateTime.Now.Year - RO7 Estúdio</p>
-</footer>

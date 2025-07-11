@@ -3,7 +3,7 @@
 
     deleteButtons.forEach(button => {
         button.addEventListener("click", function (event) {
-            if (!confirm("Tem certeza que deseja excluir este funcionário?")) {
+           // if (!confirm("Tem certeza que deseja excluir este funcionário?")) {
                 event.preventDefault();
 
 

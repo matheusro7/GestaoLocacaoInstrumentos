@@ -4,14 +4,16 @@ namespace GestaoLocacaoInstrumentos.Models
 {
     public enum ModeloEnum
     {
-        Sopro,
-        Percussao,
-        Corda
+        Cordas,
+        Eletrônico,
+        Percussão,
+        Sporo,
+        Teclado,
+        Outros
     }
     public class Instrumento
     {
         public int Id { get; set; }
-       // public string Modelo { get; set; }
         public string Marca { get; set; }
         public string Nome { get; set; }
         public string Descricao { get; set; }

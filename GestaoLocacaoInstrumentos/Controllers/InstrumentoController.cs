@@ -54,14 +54,13 @@ namespace GestaoLocacaoInstrumentos.Controllers
     //} aqui
         private static List<Instrumento> funcionarios = new List<Instrumento>
         {
-            new Instrumento {  Nome = "Violão", Marca = "Yamaha", Modelo = ModeloEnum.Corda, ValorAluguel = 50, Descricao = "Violão acústico"  },
-            new Instrumento { Nome = "Teclado", Marca = "Casio", Modelo = ModeloEnum.Percussao, ValorAluguel = 70, Descricao = "Tarro" }
+            new Instrumento {  Nome = "Cordofones", Marca = "Fender", Modelo = ModeloEnum.Cordas, ValorAluguel = 50, Descricao = "Contrabaixo"  },
+            new Instrumento { Nome = "Membrafones", Marca = "Gorilla", Modelo = ModeloEnum.Percussão, ValorAluguel = 70, Descricao = "Bumbo" }
         };
 
         // GET: Instrumento/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(int id)
         {
-            if (id == null) return NotFound();
 
             var instrumento = await _context.Instrumentos.FindAsync(id);
             if (instrumento == null) return NotFound();
@@ -112,6 +111,7 @@ namespace GestaoLocacaoInstrumentos.Controllers
         {
             var instrumento = await _context.Instrumentos.FindAsync(id);
             _context.Instrumentos.Remove(instrumento);
+            TempData["MensagemSucesso"] = "Instrumento excluído com sucesso!";
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }

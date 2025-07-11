@@ -8,6 +8,14 @@
 
 <a asp-action="Create" class="btn btn-success mb-3">+ Novo Agendamento</a>
 
+@if (TempData["MensagemSucesso"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        @TempData["MensagemSucesso"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fechar"></button>
+    </div>
+}
+
 @if (!Model.Any())
 {
     <div class="alert alert-warning">
@@ -52,7 +60,3 @@ else
         </table>
     </div>
 }
-<!-- Footer -->
-<footer class="text-center mt-5 py-3 bg-dark text-light">
-    <p>&copy; @DateTime.Now.Year - RO7 Estúdio</p>
-</footer>
