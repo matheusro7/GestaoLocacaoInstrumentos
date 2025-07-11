@@ -1,39 +1,58 @@
 ﻿@model IEnumerable<Agendamento>
 
+@{
+    ViewData["Title"] = "Agendamentos";
+}
 
-<div class="container">
-    <h1>Agendamentos</h1>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Estúdio</th>
-                <th>Data</th>
-                <th>Hora Início</th>
-                <th>Hora Fim</th>
-                <th>Cliente</th>
-                <th>Valor</th>
-                <th>Ações</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
+<h2 class="text-light mb-4">Agendamentos</h2>
+
+<a asp-action="Create" class="btn btn-success mb-3">+ Novo Agendamento</a>
+
+@if (!Model.Any())
+{
+    <div class="alert alert-warning">
+        Nenhum agendamento cadastrado.
+    </div>
+}
+else
+{
+    <div class="table-responsive">
+        <table class="table table-dark table-striped table-hover">
+            <thead class="table-light">
                 <tr>
-                    <td>@item.Id</td>
-                    <td>@item.Estudio</td>
-                    <td>@item.Data.ToShortDateString()</td>
-                    <td>@item.HoraInicio</td>
-                    <td>@item.HoraFim</td>
-                    <td>@item.Cliente</td>
-                    <td>@item.Valor.ToString("C")</td>
-                    <td>
-                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">Editar</a>
-                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Excluir</a>
-                    </td>
+                    <th>ID</th>
+                    <th>Estúdio</th>
+                    <th>Data</th>
+                    <th>Hora Início</th>
+                    <th>Hora Fim</th>
+                    <th>Cliente</th>
+                    <th>Valor</th>
+                    <th>Ações</th>
                 </tr>
-            }
-        </tbody>
-    </table>
-    <a asp-action="Create" class="btn btn-success">Novo Agendamento</a>
-</div>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Estudio</td>
+                        <td>@item.Data.ToString("dd/MM/yyyy")</td>
+                        <td>@item.HoraInicio</td>
+                        <td>@item.HoraFim</td>
+                        <td>@item.Cliente</td>
+                        <td>@item.Valor.ToString("C")</td>
+                        <td>
+                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-outline-info btn-sm">Detalhes</a>
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-outline-warning btn-sm">Editar</a>
+                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-outline-danger btn-sm ms-1">Excluir</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+<!-- Footer -->
+<footer class="text-center mt-5 py-3 bg-dark text-light">
+    <p>&copy; @DateTime.Now.Year - RO7 Estúdio</p>
+</footer>

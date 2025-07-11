@@ -7,6 +7,7 @@ Action<DbContextOptionsBuilder>? optionsAction = options =>
             options.UseInMemoryDatabase("GestaoLocacaoInstrumentos");
 builder.Services.AddDbContext<LocadoraContext>((Action<DbContextOptionsBuilder>?)optionsAction);
 
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 

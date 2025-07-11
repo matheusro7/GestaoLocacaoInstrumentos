@@ -7,18 +7,14 @@ namespace GestaoLocacaoInstrumentos.Models
     {
         public int Id { get; set; }
 
-        [Required]
-        [StringLength(100)]
+        [Required(ErrorMessage = "O nome é obrigatório.")]
         public string Nome { get; set; }
 
-        [Required]
-        [EmailAddress]
-        [StringLength(100)]
+        [Required(ErrorMessage = "O e-mail é obrigatório.")]
+        [EmailAddress(ErrorMessage = "Formato de e-mail inválido.")]
         public string Email { get; set; }
 
-        [Required]
-        [StringLength(100)]
-        [DataType(DataType.Password)]
+        [Required(ErrorMessage = "A senha é obrigatória.")]
         public string Senha { get; set; }
     }
 }

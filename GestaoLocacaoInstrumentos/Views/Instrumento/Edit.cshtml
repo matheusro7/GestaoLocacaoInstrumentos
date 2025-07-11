@@ -10,9 +10,8 @@
             <input type="text" class="form-control" id="Nome" name="Nome" value="@Model.Nome" required />
         </div>
         <div class="mb-3">
-            <label asp-for="Modelo">Cargo</label>
+            <label asp-for="Modelo">Modelo</label>
             <select asp-for="Modelo" class="form-control" asp-items="Html.GetEnumSelectList<ModeloEnum>()" ></select>
-        <option value="value">text</option>
         </div>
         <div class="mb-3">
             <label for="Marca" class="form-label">Marca</label>
@@ -20,16 +19,16 @@
         </div>
         <div class="mb-3">
             <label for="Descricao" class="form-label">Descricao</label>
-            <input type="text" class="form-control" id="Descricao" name="Descricao" value="@Model.Descricao" required />
+            <input type="text" class="form-control" id="Descricao" name="Descricão" value="@Model.Descricao" required />
         </div>
         <div class="mb-3">
             <label for="ValorAluguel" class="form-label">Valor Aluguel</label>
             <input type="text" class="form-control" id="ValorAluguel" name="ValorAluguel" placeholder="Valor (R$)" type="number" step="0.01" value="@Model.ValorAluguel" required />
         </div>
-        <div class="mb-3">
+        <!--<div class="mb-3">
             <label for="Id" class="form-label">Id</label>
             <input type="text" class="form-control" id="Id" name="Id" value="@Model.Id" required />
-        </div>
+        </div>-->
         <!--<div class="mb-3">
             <label for="Disponivel" class="form-label">Disponível</label>
             <select class="form-select" id="Disponivel" name="Disponivel">

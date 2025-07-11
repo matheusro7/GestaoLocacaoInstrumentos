@@ -2,6 +2,11 @@
 using GestaoLocacaoInstrumentos.Data;
 using GestaoLocacaoInstrumentos.Models;
 using Microsoft.EntityFrameworkCore;
+using ClosedXML.Excel;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using GestaoLocacaoInstrumentos.Utils;
 
 namespace GestaoLocacaoInstrumentos.Controllers;
 public class AgendamentoController : Controller
@@ -18,6 +23,46 @@ public class AgendamentoController : Controller
         return View(await _context.Agendamentos.ToListAsync());
     }
 
+    public string Relatorio(FiltroAgendamento filtroAgendamento)
+    {
+        // Começa com a query base
+        var query = _context.Agendamentos.AsQueryable();
+
+        // Aplica os filtros apenas se os campos não forem nulos
+        if (filtroAgendamento.Data != null)
+        {
+            query = query.Where(x => x.Data == filtroAgendamento.Data);
+        }
+
+        if (!string.IsNullOrEmpty(filtroAgendamento.Cliente))
+        {
+            query = query.Where(x => x.Cliente == filtroAgendamento.Cliente);
+        }
+
+        if (!string.IsNullOrEmpty(filtroAgendamento.Estudio))
+        {
+            query = query.Where(x => x.Estudio == filtroAgendamento.Estudio);
+        }
+
+        var agendamentosFiltrados = query.ToList();
+
+        if (agendamentosFiltrados == null) return "Não há registros para os filtros informados";
+
+        var exportador = new ExcelExportService();
+
+        string downloadsPath = Path.Combine(
+            Environment.GetFolderPath(Environment.SpecialFolder.UserProfile),
+            "Downloads"
+        );
+
+        string caminho = downloadsPath + "\\Agendamentos.xlsx";
+        exportador.ExportarAgendamentosParaExcel(agendamentosFiltrados, caminho);
+
+
+        return "Relatório gerado com sucesso";
+    }
+
+
     public IActionResult Create()
     {
         return View();
@@ -27,12 +72,12 @@ public class AgendamentoController : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Create(Agendamento agendamento)
     {
-        
+
         //if (ModelState.IsValid)
-       // {
-            _context.Add(agendamento);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+        // {
+        _context.Add(agendamento);
+        await _context.SaveChangesAsync();
+        return RedirectToAction(nameof(Index));
         //}
         //return View(agendamento);
     }
@@ -83,11 +128,11 @@ public class AgendamentoController : Controller
     {
         return _context.Agendamentos.Any(e => e.Id == id);
     }
-  /// <summary>
-  /// 
-  /// </summary>
-  /// <param name="id"></param>
-  /// <returns></returns>
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
     //private List<Agendamento> agendamentos = new List<Agendamento>
     //{
     //    new Agendamento { Id = 1, Estudio = "Estudio A", Data = DateTime.Now.AddDays(1), HoraInicio = TimeSpan.FromHours(12), HoraFim = TimeSpan.FromHours(13), Cliente = "Cliente 1", Valor = 150.00M, Descricao = "abc"},
@@ -99,7 +144,7 @@ public class AgendamentoController : Controller
     {
         if (id == null) return NotFound();
 
-        var agendamento = await _context.Agendamentos.FindAsync(id);
+        var agendamento = await _context.Agendamentos.FirstOrDefaultAsync(m => m.Id == id);
         if (agendamento == null) return NotFound();
 
         return View(agendamento);
@@ -107,41 +152,48 @@ public class AgendamentoController : Controller
 
     //Exibir a página de confirmação de exclusão
     public async Task<IActionResult> Delete(int? id)
+    {
+        if (id == null)
         {
-            if (id == null)
-             {
             return NotFound();
-            }
+        }
 
-            var agendamento = await _context.Agendamentos
-            .FirstOrDefaultAsync(m => m.Id == id);
+        var agendamento = await _context.Agendamentos
+        .FirstOrDefaultAsync(m => m.Id == id);
 
-            if (agendamento == null)
-            {
+        if (agendamento == null)
+        {
             return NotFound();
-            }
+        }
 
-            return View(agendamento);
+        return View(agendamento);
     }
 
-   // Realizar a exclusão
+    // Realizar a exclusão
     [HttpPost, ActionName("Delete")]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> DeleteConfirmed(int id)
+    {
+        var agendamento = await _context.Agendamentos.FindAsync(id);
+        if (agendamento != null)
         {
-            var agendamento = await _context.Agendamentos.FindAsync(id);
-            if (agendamento != null)
-            {
-                 _context.Agendamentos.Remove(agendamento);
-                 await _context.SaveChangesAsync();
-            }
-             return RedirectToAction(nameof(Index));
+            _context.Agendamentos.Remove(agendamento);
+            await _context.SaveChangesAsync();
+        }
+        return RedirectToAction(nameof(Index));
 
 
 
     }
-
 }
+
+
+
+
+
+
+
+
 ///////////////////////////////////
 //acima código oficial
 //////////////////////////////

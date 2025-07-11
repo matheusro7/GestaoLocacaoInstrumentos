@@ -5,15 +5,22 @@ using GestaoLocacaoInstrumentos.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
+using System.Diagnostics.Metrics;
 
 namespace GestaoLocacaoInstrumentos.Controllers
 {
     public class EstudioController : Controller
     {
+        private readonly LocadoraContext _context;
+        public EstudioController(LocadoraContext context)
+        {
+            _context = context;
+        }
+
         private static List<Estudio> _estudios = new List<Estudio>
         {
             new Estudio { Id = 1, Nome = "Estúdio A", Capacidade = 10, Valor = 150, Descricao = "A sala dispõe de Ar Condicionado, Frigobar e Sofá" },
-            new Estudio { Id = 2, Nome = "Estúdio B", Capacidade = 5, Valor = 100, Descricao = "Asala dispõe apenas de Ar Condicionado" }
+            new Estudio { Id = 2, Nome = "Estúdio B", Capacidade = 5, Valor = 100, Descricao = "A sala dispõe apenas de Ar Condicionado" }
         };
         private readonly object estudios;
 
@@ -29,17 +36,23 @@ namespace GestaoLocacaoInstrumentos.Controllers
         }
 
 
+        // GET: Estudio/Create
+        public IActionResult Create()
+        {
+            return View();
+        }
+
         // Salvar o novo estúdio
         [HttpPost]
         public IActionResult Create(Estudio estudio)
         {
-            //if (ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 estudio.Id = _estudios.Count + 1; // Gera um novo ID
                 _estudios.Add(estudio);
-                return RedirectToAction("Index");
+                return RedirectToAction(nameof(Index));
             }
-         //   return View(estudio);
+            return View(estudio);
         }
 
         // Exibir o formulário para editar um estúdio
@@ -49,12 +62,13 @@ namespace GestaoLocacaoInstrumentos.Controllers
             var estudio = _estudios.FirstOrDefault(e => e.Id == id);
             if (estudio == null) return NotFound();
 
+
             return View(estudio);
         }
 
         // Salvar as alterações do estúdio
         [HttpPost]
-        public IActionResult Edit(Estudio estudio)
+        public async Task<IActionResult> Edit(Estudio estudio)
         {
             if (ModelState.IsValid)
             {
@@ -66,8 +80,12 @@ namespace GestaoLocacaoInstrumentos.Controllers
                     estudioExistente.Capacidade = estudio.Capacidade;
                     estudioExistente.Valor = estudio.Valor;
                     estudioExistente.Descricao = estudio.Descricao;
+                    estudioExistente.Endereco = estudio.Endereco;
 
-                    return RedirectToAction("Index");
+                    _context.Update(estudio);
+                    await _context.SaveChangesAsync();
+
+                    return RedirectToAction(nameof(Index));
                 }
             }
             return View(estudio);

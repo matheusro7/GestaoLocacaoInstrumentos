@@ -148,8 +148,8 @@ namespace GestaoLocacaoInstrumentos.Controllers
                     }
 
                     TempData["Message"] = "Funcionário editado com sucesso!";
-                    return RedirectToAction("Index");
-                }
+                    return RedirectToAction(nameof(Index));
+            }
 
                 return View(funcionario);
             

@@ -5,168 +5,134 @@ using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Threading.Tasks;
 
-
-
 namespace GestaoLocacaoInstrumentos.Controllers
 {
     public class ClienteController : Controller
     {
-        private static List<Cliente> _clientes = new List<Cliente>
-        {
-            new Cliente { Id = 1, Nome = "Carlos Silva", Senha = "123456789", Email = "carlos.silva@example.com" },
-            new Cliente { Id = 2, Nome = "Maria Oliveira", Senha = "987654321", Email = "maria.oliveira@example.com" }
-        };
+        private readonly LocadoraContext _context;
 
-        // Listar todos os clientes
-        public IActionResult Index()
+        public ClienteController(LocadoraContext context)
         {
-            return View(_clientes);
+            _context = context;
         }
 
-        // Exibir os detalhes de um cliente
-        public IActionResult Details(int id)
+        // GET: Cliente
+        public async Task<IActionResult> Index()
         {
-            var cliente = _clientes.FirstOrDefault(c => c.Id == id);
+            return View(await _context.Clientes.ToListAsync());
+        }
+
+        // GET: Cliente/Details/5
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null)
+                return NotFound();
+
+            var cliente = await _context.Clientes.FindAsync(id);
             if (cliente == null)
                 return NotFound();
 
             return View(cliente);
         }
 
-        // Exibir o formulário para criar um novo cliente
-        [HttpGet]
+        // GET: Cliente/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // Salvar o novo cliente
+        // POST: Cliente/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Cliente cliente)
         {
-            // if (ModelState.IsValid)
-           // {
-                cliente.Id = _clientes.Any() ? _clientes.Max(c => c.Id) + 1 : 1; 
-                _clientes.Add(cliente);
-                TempData["Message"] = "Cliente criado com sucesso!";
+            if (ModelState.IsValid)
+            {
+                _context.Add(cliente);
+                await _context.SaveChangesAsync();
+
+                //TempData["Message"] = "Cliente criado com sucesso!";
                 return RedirectToAction(nameof(Index));
-          //  }
-           // return View(cliente);
+            }
+
+            return View(cliente);
         }
 
-        // Exibir o formulário para editar um cliente
-        [HttpGet]
-        public IActionResult Edit(int id)
+        // GET: Cliente/Edit/5
+        public async Task<IActionResult> Edit(int? id)
         {
-            var cliente = _clientes.FirstOrDefault(c => c.Id == id);
+            if (id == null)
+                return NotFound();
+
+            var cliente = await _context.Clientes.FindAsync(id);
             if (cliente == null)
                 return NotFound();
 
             return View(cliente);
         }
 
-        // Salvar as alterações do cliente
+        // POST: Cliente/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(Cliente cliente)
+        public async Task<IActionResult> Edit(int id, Cliente cliente)
         {
-            //if (ModelState.IsValid)
+            if (id != cliente.Id)
+                return NotFound();
+
+            if (ModelState.IsValid)
             {
-                var clienteExistente = _clientes.FirstOrDefault(c => c.Id == cliente.Id);
-                if (clienteExistente != null)
+                try
                 {
-                    // Atualiza os dados do cliente
-                    clienteExistente.Nome = cliente.Nome;
-                    clienteExistente.Id = cliente.Id;
-                    clienteExistente.Email = cliente.Email;
+                    _context.Update(cliente);
+                    await _context.SaveChangesAsync();
 
                     TempData["Message"] = "Cliente atualizado com sucesso!";
                     return RedirectToAction(nameof(Index));
                 }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!ClienteExists(cliente.Id))
+                        return NotFound();
+                    else
+                        throw;
+                }
             }
+
             return View(cliente);
         }
 
-        // Exibir a página de confirmação de exclusão
-        [HttpGet]
-        public IActionResult Delete(int id)
+        // GET: Cliente/Delete/5
+        public async Task<IActionResult> Delete(int? id)
         {
-            var cliente = _clientes.FirstOrDefault(c => c.Id == id);
+            if (id == null)
+                return NotFound();
+
+            var cliente = await _context.Clientes.FindAsync(id);
             if (cliente == null)
                 return NotFound();
 
             return View(cliente);
         }
 
-        // Confirmar exclusão do cliente
+        // POST: Cliente/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public IActionResult DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var cliente = _clientes.FirstOrDefault(c => c.Id == id);
+            var cliente = await _context.Clientes.FindAsync(id);
             if (cliente != null)
             {
-                _clientes.Remove(cliente);
+                _context.Clientes.Remove(cliente);
+                await _context.SaveChangesAsync();
                 TempData["Message"] = "Cliente excluído com sucesso!";
             }
+
             return RedirectToAction(nameof(Index));
+        }
+
+        private bool ClienteExists(int id)
+        {
+            return _context.Clientes.Any(c => c.Id == id);
         }
     }
 }
-
-
-
-
-
-
-//[Route("api/[controller]")]
-//[ApiController]
-//public class ClienteController : ControllerBase
-//{
-//    private readonly LocadoraContext _context;
-
-//    public ClienteController(LocadoraContext context)
-//    {
-//        _context = context;
-//    }
-
-//    // GET: api/Cliente
-//    [HttpGet]
-//    public IActionResult GetClientes()
-//    {
-//        return Ok(_context.Clientes.ToList());
-//    }
-
-//    // POST: api/Cliente
-//    [HttpPost]
-//    public IActionResult AddCliente([FromBody] Cliente cliente)
-//    {
-//        //if (!ModelState.IsValid)
-//        {
-//            return BadRequest(ModelState);
-//        }
-
-//       // _context.Clientes.Add(cliente);
-//       // _context.SaveChanges();
-//       // return CreatedAtAction(nameof(GetClientes), new { id = cliente.Id }, cliente);
-//    }
-
-//    // DELETE: api/Cliente/{id}
-//    [HttpDelete("{id}")]
-//    public IActionResult DeleteCliente(int id)
-//    {
-//        var cliente = _context.Clientes.Find(id);
-//        if (cliente == null)
-//        {
-//            return NotFound();
-//        }
-
-//        _context.Clientes.Remove(cliente);
-//        _context.SaveChanges();
-//        return NoContent();
-//    }
-//}
-
-
-

@@ -1,7 +1,7 @@
 ﻿@model Agendamento
 
 <div class="container mt-4">
-    <h1 class="text-center">Novo Agendamento</h1>
+    <h1 class="text-center">Adicionar Novo Agendamento</h1>
     <form asp-action="Create" method="post" class="mt-4">
         <div class="mb-3">
             <label for="Estudio" class="form-label">Estúdio</label>
@@ -15,11 +15,11 @@
             <input asp-for="Data" type="date" class="form-control" required />
         </div>
         <div class="mb-3">
-            <label for="HoraInicio" class="form-label">Hora de Início</label>
+            <label for="HoraInicio" class="form-label">Hora Início</label>
             <input asp-for="HoraInicio" type="time" class="form-control" required />
         </div>
         <div class="mb-3">
-            <label for="HoraFim" class="form-label">Hora de Término</label>
+            <label for="HoraFim" class="form-label">Hora Fim</label>
             <input asp-for="HoraFim" type="time" class="form-control" required />
         </div>
         <div class="mb-3">

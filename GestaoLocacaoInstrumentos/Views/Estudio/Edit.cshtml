@@ -4,15 +4,19 @@
 
 <form asp-action="Edit" method="post">
     <div class="mb-3">
-        <label for="Nome" class="form-label">Nome da Sala</label>
+        <label for="Nome" class="form-label">Nome</label>
         <select asp-for="Nome" class="form-select" required>
-            <option value="Nome">Estúdio A </option>
-            <option value="Nome">Estúdio B </option>
+            <option value="Estúdio A">Estúdio A </option>
+            <option value="Estúdio B">Estúdio B </option>
         </select>
     </div>
     <div class="form-group">
-        <label for="Capacidade" class="form-label">Capacidade</label>
+        <label for="Capacidade" class="form-label">Capacidade Pessoas</label>
         <input type="text" class="form-control" id="Capacidade" name="Capacidade" value="@Model.Capacidade" required />
+    </div>
+    <div class="form-group">
+        <label for="Descricao" class="form-label">Descrição</label>
+        <input type="text" class="form-control" id="Descricao" name="Descricao" value="@Model.Descricao" required />
     </div>
     <div class="form-group">
         <label for="Endereco" class="form-label">Endereço</label>

@@ -1,27 +1,26 @@
 ﻿@model GestaoLocacaoInstrumentos.Models.Instrumento
+
+<h4>Tem certeza que deseja excluir o seguinte Instrumento?</h4>
 <div class="container">
-    <h2>Excluir Instrumento</h2>
-
-    <p>Tem certeza de que deseja excluir o seguinte instrumento?</p>
-
+    <hr />
     <dl class="row">
-        <dt class="col-sm-2">Nome</dt>
+        <dt class="col-sm-2">Nome:</dt>
         <dd class="col-sm-10">@Model.Nome</dd>
 
-        <dt class="col-sm-2">Modelo</dt>
+        <dt class="col-sm-2">Modelo:</dt>
         <dd class="col-sm-10">@Model.Modelo</dd>
 
-        <dt class="col-sm-2">Marca</dt>
-        <dd class="col-sm-10">@Model.Marca:C</dd>
+        <dt class="col-sm-2">Marca:</dt>
+        <dd class="col-sm-10">@Model.Marca</dd>
 
-        <dt class="col-sm-2">Descricao</dt>
-        <dd class="col-sm-10">@Model.Descricao:C</dd>
+        <dt class="col-sm-2">Descrição:</dt>
+        <dd class="col-sm-10">@Model.Descricao</dd>
 
-        <dt class="col-sm-2">ValorAluguel</dt>
-        <dd class="col-sm-10">@Model.ValorAluguel:C</dd>
+        <dt class="col-sm-2">Valor Aluguel:</dt>
+        <dd class="col-sm-8">@Model.ValorAluguel.ToString("C")</dd>
 
-        <dt class="col-sm-2">Id</dt>
-        <dd class="col-sm-10">@Model.Id:C</dd>
+       <!--<dt class="col-sm-2">ID:</dt>
+        <dd class="col-sm-8">@Model.Id</dd>-->
 
         <!--<dt class="col-sm-2">Disponivel</dt>
         <dd class="col-sm-10">? "Sim" : "Não"</dd>-->
@@ -29,7 +28,7 @@
 
     <form asp-action="Delete">
         <input type="hidden" asp-for="Id" />
-        <button type="submit" class="btn btn-danger">Excluir</button>
+        <button type="submit" class="btn btn-danger">Confirmar Exclusão</button>
         <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
     </form>
 </div>

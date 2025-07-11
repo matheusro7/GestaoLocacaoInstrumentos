@@ -1,22 +1,27 @@
 ﻿@model GestaoLocacaoInstrumentos.Models.Funcionario
 
-<h1>Confirmar Exclusão</h1>
+<h4>Tem certeza que deseja excluir o seguinte Funcionário?</h4>
 
 <div>
-    <h4>Funcionário</h4>
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
-            Nome
+            Nome:
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Nome)
         </dd>
         <dt class="col-sm-2">
-            Cargo
+            Cargo:
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Cargo)
+        </dd>
+        <dt class="col-sm-2">
+            ID:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Id)
         </dd>
     </dl>
 </div>

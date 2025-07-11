@@ -1,0 +1,39 @@
+﻿@model GestaoLocacaoInstrumentos.Models.Agendamento
+
+@{
+    ViewData["Title"] = "Detalhes do Agendamento";
+}
+
+<div class="container mt-4 text-light">
+    <h2>Detalhes do Agendamento</h2>
+
+    <div class="card bg-dark text-light mb-4" style="max-width: 600px;">
+        <div class="card-body">
+            <dl class="row">
+                <dt class="col-sm-4">ID:</dt>
+                <dd class="col-sm-8">@Model.Id</dd>
+
+                <dt class="col-sm-4">Estúdio:</dt>
+                <dd class="col-sm-8">@Model.Estudio</dd>
+
+                <dt class="col-sm-4">Data:</dt>
+                <dd class="col-sm-8">@Model.Data.ToString("dd/MM/yyyy")</dd>
+
+                <dt class="col-sm-4">Hora Início:</dt>
+                <dd class="col-sm-8">@Model.HoraInicio</dd>
+
+                <dt class="col-sm-4">Hora Fim:</dt>
+                <dd class="col-sm-8">@Model.HoraFim</dd>
+
+                <dt class="col-sm-4">Cliente:</dt>
+                <dd class="col-sm-8">@Model.Cliente</dd>
+
+                <dt class="col-sm-4">Valor:</dt>
+                <dd class="col-sm-8">@Model.Valor.ToString("C")</dd>
+            </dl>
+
+            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-outline-warning me-2">Editar</a>
+            <a asp-action="Index" class="btn btn-outline-secondary">Voltar</a>
+        </div>
+    </div>
+</div>

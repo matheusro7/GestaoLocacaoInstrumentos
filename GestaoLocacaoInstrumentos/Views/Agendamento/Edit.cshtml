@@ -27,6 +27,10 @@
         <label for="HoraFim">Hora Fim</label>
         <input type="time" class="form-control" asp-for="HoraFim" />
     </div>
+    <div class="form-group">
+        <label for="Valor">Valor</label>
+        <input placeholder="Valor (R$)" type="number" step="0.01" class="form-control" asp-for="Valor" />
+    </div>
     <br>
     <button type="submit" class="btn btn-success">Salvar Alterações</button>
     <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
