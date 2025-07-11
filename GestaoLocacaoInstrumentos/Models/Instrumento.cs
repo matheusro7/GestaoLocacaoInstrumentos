@@ -19,7 +19,6 @@ namespace GestaoLocacaoInstrumentos.Models
         public string Descricao { get; set; }
         public decimal ValorAluguel { get; set; }
         public ModeloEnum Modelo { get; set; }
-        //public bool Disponivel { get; set; }
     }
 
 }

@@ -127,7 +127,6 @@ namespace GestaoLocacaoInstrumentos.Controllers
 
             return RedirectToAction(nameof(Index));
         }
-
         private bool ClienteExists(int id)
         {
             return _context.Clientes.Any(c => c.Id == id);
